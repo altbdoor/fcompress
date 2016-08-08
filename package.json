@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "clean-css": "latest",
+    "uglify-js": "latest"
+  }
+}
