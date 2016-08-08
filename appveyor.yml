@@ -1,0 +1,17 @@
+version: '{build}'
+branches:
+  only:
+  - master
+skip_tags: true
+build_script:
+- cmd: >-
+    npm install
+
+    appveyor DownloadFile "https://nodejs.org/dist/latest-argon/win-x86/node.exe" -FileName "c:\projects\fcompress\node.exe"
+
+    7z a fcompress.7z fcompress.bat node.exe node_modules/ > nul
+
+    copy /b 7zSDcon.sfx + config.txt + fcompress.7z fcompress.exe
+test: off
+artifacts:
+- path: fcompress.exe
