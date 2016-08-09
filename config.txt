@@ -1,5 +1,5 @@
 ;!@Install@!UTF-8!
 Title="fcompress"
-RunProgram="/c cd /d %%W && %%T\\fcompress.bat"
+RunProgram="/c cd /d %%W && %%T\\fcompress.bat "
 Progress="no"
 ;!@InstallEnd@!

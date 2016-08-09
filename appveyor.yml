@@ -13,7 +13,7 @@ build_script:
 
     appveyor DownloadFile "https://nodejs.org/dist/latest-argon/win-x86/node.exe" -FileName "c:\projects\fcompress\node.exe"
 
-    7z a fcompress.7z fcompress.bat node.exe node_modules\ > nul
+    7z a -mx9 fcompress.7z fcompress.bat node.exe node_modules > nul
 
     copy /b 7zSDcon.sfx + config.txt + fcompress.7z fcompress.exe
 test: off

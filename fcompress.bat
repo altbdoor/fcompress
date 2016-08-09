@@ -1,6 +1,8 @@
 @echo off
 
-set first_param=%1
+set run_path=%~dp0
+set run_path=%run_path:~0,-1%
+set run_mode=%1
 
 rem http://stackoverflow.com/questions/761615/
 shift
@@ -14,12 +16,12 @@ goto loop
 
 
 :afterloop
-if /i "%first_param%" == "c" ( goto process_css )
-if /i "%first_param%" == "css" ( goto process_css )
-if /i "%first_param%" == "cleancss" ( goto process_css )
-if /i "%first_param%" == "j" ( goto process_js )
-if /i "%first_param%" == "js" ( goto process_js )
-if /i "%first_param%" == "uglifyjs" ( goto process_js )
+if /i "%run_mode%" == "c" ( goto process_css )
+if /i "%run_mode%" == "css" ( goto process_css )
+if /i "%run_mode%" == "cleancss" ( goto process_css )
+if /i "%run_mode%" == "j" ( goto process_js )
+if /i "%run_mode%" == "js" ( goto process_js )
+if /i "%run_mode%" == "uglifyjs" ( goto process_js )
 
 
 :help
@@ -46,7 +48,7 @@ goto process_common
 
 
 :process_common
-node.exe "node_modules\%process%\bin\%process:-=%" %params%
+"%run_path%\node.exe" "%run_path%\node_modules\%process%\bin\%process:-=%" %params%
 
 
 :stop
