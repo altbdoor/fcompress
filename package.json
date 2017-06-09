@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "clean-css": "latest",
+    "clean-css-cli": "latest",
     "uglify-js": "latest"
   }
 }
