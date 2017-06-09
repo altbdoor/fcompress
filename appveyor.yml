@@ -19,7 +19,7 @@ build_script:
 
     copy /b 7zSDcon.sfx + config.txt + fcompress.7z fcompress.exe
 
-    7z a fcompress.zip fcompress.exe
+    7z a fcompress.zip fcompress.exe > nul
 test: off
 artifacts:
 - path: fcompress.zip
