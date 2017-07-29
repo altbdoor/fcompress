@@ -38,17 +38,19 @@ goto stop
 
 
 :process_css
-set process=clean-css
+set module=clean-css-cli
+set binary=cleancss
 goto process_common
 
 
 :process_js
-set process=uglify-js
+set module=uglify-js
+set binary=uglifyjs
 goto process_common
 
 
 :process_common
-"%run_path%\node.exe" "%run_path%\node_modules\%process%\bin\%process:-=%" %params%
+"%run_path%\node.exe" "%run_path%\node_modules\%module%\bin\%binary%" %params%
 
 
 :stop
