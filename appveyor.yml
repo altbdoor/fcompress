@@ -7,15 +7,17 @@ clone_script:
 - cmd: git clone -q --branch=master https://github.com/altbdoor/fcompress.git C:\projects\fcompress
 build_script:
 - cmd: >-
+    npm --version
+
     npm install -g npm@3
 
     npm --version
 
     npm install
 
-    appveyor DownloadFile "https://nodejs.org/dist/latest-argon/win-x86/node.exe" -FileName "c:\projects\fcompress\node.exe"
+    appveyor DownloadFile "https://nodejs.org/dist/latest-boron/win-x86/node.exe" -FileName "c:\projects\fcompress\node.exe"
 
-    7z a -mx9 fcompress.7z fcompress.bat node.exe node_modules > nul
+    7z a -t7z -m0=lzma2 -mx=9 -ms=on fcompress.7z fcompress.bat node.exe node_modules > nul
 
     copy /b 7zSDcon.sfx + config.txt + fcompress.7z fcompress.exe
 
